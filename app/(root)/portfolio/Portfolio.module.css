@@ -1,0 +1,28 @@
+.control[data-with-padding="true"] {
+    border: none;
+    background-color: #efefef;
+    color: #7c7c7c;
+    font-weight: 600;
+}
+
+.control:not([data-with-padding="true"]) {
+    border: 1px solid #ea7516;
+}
+
+.control:not([data-with-padding="true"]) svg {
+    fill: #ea7516;
+}
+
+.control[data-disable="true"] {
+    opacity: 0.4;
+}
+
+.control[data-active="true"] {
+    background-color: #fbe8ca;
+    color: #ea7516;
+}
+
+.dots {
+    background-color: #efefef;
+    border-radius: 50%;
+}

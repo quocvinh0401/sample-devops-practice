@@ -1,0 +1,16 @@
+.detail h3 {
+    margin-top: 40px;
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 500;
+    border-left: 3px solid #437dee;
+    padding-left: 13px;
+}
+
+.detail ul {
+    padding-left: 20px;
+}
+
+.detail li {
+    list-style-type: disc;
+}

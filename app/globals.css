@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    @apply m-0 p-0 box-border text-white-950;
+}
+
+html {
+    @apply scroll-smooth;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("/fonts/AvenirNextLTPro-Regular.otf") format("opentype");
+}
+
+.avenir {
+    font-family: "Avenir Next", sans-serif;
+}
+
+h1 {
+    @apply capitalize text-4xl xs:text-5xl lg:text-[64px] font-bold mb-2 lg:leading-[87px];
+}
+
+h2 {
+    @apply font-bold text-3xl md:text-[40px] text-secondary-500;
+}
+
+input {
+    @apply outline-none;
+}
+
+.sub-title {
+    @apply text-neutral-500 mb-2;
+}
+
+main {
+    @apply pb-[120px];
+}
+
+form > input,
+textarea {
+    @apply outline-none px-5 py-[14px] rounded-lg;
+}
+
+.contact form > input,
+textarea {
+    @apply border border-white-700;
+}
+
+.container {
+    @apply max-w-8xl px-4 xs:px-10 xl:px-[100px];
+}
+
+.form-contact > input,
+.form-contact > textarea {
+    @apply focus:border-primary-400 hover:shadow-neutral-20 focus:hover:shadow-none;
+}
+
+/* config swiper */
+.swiper-wrapper {
+    @apply !w-max;
+}

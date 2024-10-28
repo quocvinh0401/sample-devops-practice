@@ -1,0 +1,17 @@
+.input {
+    height: 52px;
+}
+
+@media only screen and (min-width: 576px) {
+    .input {
+        padding: 16px 44px;
+    }
+
+    .section[data-position="left"] {
+        left: 12px;
+    }
+
+    .section[data-position="right"] {
+        right: 12px;
+    }
+}

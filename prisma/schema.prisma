@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model CV {
+  id Int @default(autoincrement()) @id
+  job_id Int @map("jobId")
+  full_name String @map("fullName")
+  email String
+  file String
+  created_at DateTime @default(now()) @map("createdAt")
+}
+
+model Job {
+  id Int @default(autoincrement()) @id
+  location String
+  department String
+  title String
+  content String
+  is_remote Boolean @map("isRemote")
+  time_mode TimeMode @map("timeMode")
+  salary_range Float[] @map("salaryRange")
+  created_at DateTime @default(now()) @map("createdAt")
+  ended_at DateTime @default(now()) @map("endedAt")
+}
+
+model News {
+  id Int @default(autoincrement()) @id
+  category String
+  title String
+  content String
+  created_at DateTime @default(now()) @map("createdAt")
+}
+
+model Project {
+  id Int @default(autoincrement()) @id
+  title String
+  thumbnail String
+  time_frame Int @map("timeFrame")
+  problem_description String @map("problemDescription")
+  solution_description String @map("solutionDescription")
+  about_description String @map("aboutDescription")
+  about_image String @map("aboutImage")
+  website String
+  exercise_count Int @map("exerciseCount")
+  traffic_increase_count Int @map("trafficIncreaseCount")
+  clinic_count Int @map("clinicCount")
+  feature_description String @map("featureDescription")
+  created_at DateTime @default(now()) @map("createdAt")
+  features Feature[]
+}
+
+model Feature {
+  id Int @default(autoincrement()) @id
+  project_id Int @map("projectId")
+  project Project? @relation(fields: [project_id], references: [id], onDelete: Cascade)
+  title String
+  description String
+  image String
+}
+
+enum TimeMode {
+  FULL_TIME
+  PART_TIME
+}

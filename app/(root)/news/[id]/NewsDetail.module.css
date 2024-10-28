@@ -1,0 +1,19 @@
+.content img {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.content h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: inherit;
+}
+
+.content ul {
+    margin: 0 40px;
+}
+
+.content li {
+    list-style-type: disc;
+}
