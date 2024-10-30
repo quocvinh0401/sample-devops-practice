@@ -1,6 +1,9 @@
-FROM node:18-alpine
+FROM node:18-alpine AS builder
 RUN mkdir -p /app
 WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm install
 COPY . .
 
 ARG database_url
@@ -17,7 +20,17 @@ ENV EMAIL_RECEIVER $email_receiver
 ENV NEXT_PUBLIC_RECAPTCHA_SITE_KEY $next_public_recaptcha_site_key
 ENV RECAPTCHA_SECRET_KEY $recaptcha_secret_key
 
-RUN npm install
 RUN npm run build
+
+FROM node:18-alpine AS runner
+WORKDIR /app
+
+COPY --from=builder /app/package.json .
+COPY --from=builder /app/package-lock.json .
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/.next/standalone ./
+
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
