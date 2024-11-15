@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Clone project') {
             steps {
-                git 'https://github.com/quocvinh0401/sample-devops-practice.git'
+                git branch: "/main", url: 'https://github.com/quocvinh0401/sample-devops-practice.git'
             }
         }
         stage('Build Docker Image') {
