@@ -3,11 +3,9 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'zero41/sample-web-app'
-//         registry = "lequocvinh140213@gmail.com/zero41/sample-web-app" 
-// 4
-//         registryCredential = 'zero41' 
-// 5
-//         dockerImage = '' 
+        registry = "lequocvinh140213@gmail.com/zero41/sample-web-app" 
+        registryCredential = 'zero41' 
+        dockerImage = '' 
     }
 
     stages {
